@@ -1,0 +1,752 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> start
+Rule 1     start -> moviename storyline language director producer writer boxoffice runtime crew
+Rule 2     moviename -> LMOVIE
+Rule 3     moviename -> epsilon
+Rule 4     storyline -> LSTORY
+Rule 5     storyline -> epsilon
+Rule 6     language -> LLANGUAGE
+Rule 7     language -> epsilon
+Rule 8     director -> director dval
+Rule 9     director -> dval
+Rule 10    director -> epsilon
+Rule 11    dval -> LDIR
+Rule 12    producer -> lprod producer
+Rule 13    producer -> lprod
+Rule 14    producer -> epsilon
+Rule 15    writer -> separator lwrite writer
+Rule 16    writer -> lwrite writer
+Rule 17    writer -> lwrite
+Rule 18    writer -> epsilon
+Rule 19    lwrite -> CELEBRITY
+Rule 20    lprod -> CELEBRITY
+Rule 21    boxoffice -> BOXOFFICE
+Rule 22    boxoffice -> epsilon
+Rule 23    runtime -> RUNTIME
+Rule 24    runtime -> epsilon
+Rule 25    crew -> crew lcast
+Rule 26    crew -> lcast
+Rule 27    crew -> epsilon
+Rule 28    lcast -> ACTUALNAME CHARNAME
+Rule 29    lcast -> ACTUALNAME epsilon
+Rule 30    lcast -> epsilon CHARNAME
+Rule 31    epsilon -> <empty>
+
+Terminals, with rules where they appear
+
+ACTUALNAME           : 28 29
+BOXOFFICE            : 21
+CELEBRITY            : 19 20
+CHARNAME             : 28 30
+LDIR                 : 11
+LLANGUAGE            : 6
+LMOVIE               : 2
+LSTORY               : 4
+RUNTIME              : 23
+error                : 
+separator            : 15
+
+Nonterminals, with rules where they appear
+
+boxoffice            : 1
+crew                 : 1 25
+director             : 1 8
+dval                 : 8 9
+epsilon              : 3 5 7 10 14 18 22 24 27 29 30
+language             : 1
+lcast                : 25 26
+lprod                : 12 13
+lwrite               : 15 16 17
+moviename            : 1
+producer             : 1 12
+runtime              : 1
+start                : 0
+storyline            : 1
+writer               : 1 15 16
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . start
+    (1) start -> . moviename storyline language director producer writer boxoffice runtime crew
+    (2) moviename -> . LMOVIE
+    (3) moviename -> . epsilon
+    (31) epsilon -> .
+
+    LMOVIE          shift and go to state 3
+    LSTORY          reduce using rule 31 (epsilon -> .)
+    LLANGUAGE       reduce using rule 31 (epsilon -> .)
+    LDIR            reduce using rule 31 (epsilon -> .)
+    CELEBRITY       reduce using rule 31 (epsilon -> .)
+    separator       reduce using rule 31 (epsilon -> .)
+    BOXOFFICE       reduce using rule 31 (epsilon -> .)
+    RUNTIME         reduce using rule 31 (epsilon -> .)
+    ACTUALNAME      reduce using rule 31 (epsilon -> .)
+    CHARNAME        reduce using rule 31 (epsilon -> .)
+    $end            reduce using rule 31 (epsilon -> .)
+
+    start                          shift and go to state 1
+    moviename                      shift and go to state 2
+    epsilon                        shift and go to state 4
+
+state 1
+
+    (0) S' -> start .
+
+
+
+state 2
+
+    (1) start -> moviename . storyline language director producer writer boxoffice runtime crew
+    (4) storyline -> . LSTORY
+    (5) storyline -> . epsilon
+    (31) epsilon -> .
+
+    LSTORY          shift and go to state 6
+    LLANGUAGE       reduce using rule 31 (epsilon -> .)
+    LDIR            reduce using rule 31 (epsilon -> .)
+    CELEBRITY       reduce using rule 31 (epsilon -> .)
+    separator       reduce using rule 31 (epsilon -> .)
+    BOXOFFICE       reduce using rule 31 (epsilon -> .)
+    RUNTIME         reduce using rule 31 (epsilon -> .)
+    ACTUALNAME      reduce using rule 31 (epsilon -> .)
+    CHARNAME        reduce using rule 31 (epsilon -> .)
+    $end            reduce using rule 31 (epsilon -> .)
+
+    storyline                      shift and go to state 5
+    epsilon                        shift and go to state 7
+
+state 3
+
+    (2) moviename -> LMOVIE .
+
+    LSTORY          reduce using rule 2 (moviename -> LMOVIE .)
+    LLANGUAGE       reduce using rule 2 (moviename -> LMOVIE .)
+    LDIR            reduce using rule 2 (moviename -> LMOVIE .)
+    CELEBRITY       reduce using rule 2 (moviename -> LMOVIE .)
+    separator       reduce using rule 2 (moviename -> LMOVIE .)
+    BOXOFFICE       reduce using rule 2 (moviename -> LMOVIE .)
+    RUNTIME         reduce using rule 2 (moviename -> LMOVIE .)
+    ACTUALNAME      reduce using rule 2 (moviename -> LMOVIE .)
+    CHARNAME        reduce using rule 2 (moviename -> LMOVIE .)
+    $end            reduce using rule 2 (moviename -> LMOVIE .)
+
+
+state 4
+
+    (3) moviename -> epsilon .
+
+    LSTORY          reduce using rule 3 (moviename -> epsilon .)
+    LLANGUAGE       reduce using rule 3 (moviename -> epsilon .)
+    LDIR            reduce using rule 3 (moviename -> epsilon .)
+    CELEBRITY       reduce using rule 3 (moviename -> epsilon .)
+    separator       reduce using rule 3 (moviename -> epsilon .)
+    BOXOFFICE       reduce using rule 3 (moviename -> epsilon .)
+    RUNTIME         reduce using rule 3 (moviename -> epsilon .)
+    ACTUALNAME      reduce using rule 3 (moviename -> epsilon .)
+    CHARNAME        reduce using rule 3 (moviename -> epsilon .)
+    $end            reduce using rule 3 (moviename -> epsilon .)
+
+
+state 5
+
+    (1) start -> moviename storyline . language director producer writer boxoffice runtime crew
+    (6) language -> . LLANGUAGE
+    (7) language -> . epsilon
+    (31) epsilon -> .
+
+    LLANGUAGE       shift and go to state 9
+    LDIR            reduce using rule 31 (epsilon -> .)
+    CELEBRITY       reduce using rule 31 (epsilon -> .)
+    separator       reduce using rule 31 (epsilon -> .)
+    BOXOFFICE       reduce using rule 31 (epsilon -> .)
+    RUNTIME         reduce using rule 31 (epsilon -> .)
+    ACTUALNAME      reduce using rule 31 (epsilon -> .)
+    CHARNAME        reduce using rule 31 (epsilon -> .)
+    $end            reduce using rule 31 (epsilon -> .)
+
+    language                       shift and go to state 8
+    epsilon                        shift and go to state 10
+
+state 6
+
+    (4) storyline -> LSTORY .
+
+    LLANGUAGE       reduce using rule 4 (storyline -> LSTORY .)
+    LDIR            reduce using rule 4 (storyline -> LSTORY .)
+    CELEBRITY       reduce using rule 4 (storyline -> LSTORY .)
+    separator       reduce using rule 4 (storyline -> LSTORY .)
+    BOXOFFICE       reduce using rule 4 (storyline -> LSTORY .)
+    RUNTIME         reduce using rule 4 (storyline -> LSTORY .)
+    ACTUALNAME      reduce using rule 4 (storyline -> LSTORY .)
+    CHARNAME        reduce using rule 4 (storyline -> LSTORY .)
+    $end            reduce using rule 4 (storyline -> LSTORY .)
+
+
+state 7
+
+    (5) storyline -> epsilon .
+
+    LLANGUAGE       reduce using rule 5 (storyline -> epsilon .)
+    LDIR            reduce using rule 5 (storyline -> epsilon .)
+    CELEBRITY       reduce using rule 5 (storyline -> epsilon .)
+    separator       reduce using rule 5 (storyline -> epsilon .)
+    BOXOFFICE       reduce using rule 5 (storyline -> epsilon .)
+    RUNTIME         reduce using rule 5 (storyline -> epsilon .)
+    ACTUALNAME      reduce using rule 5 (storyline -> epsilon .)
+    CHARNAME        reduce using rule 5 (storyline -> epsilon .)
+    $end            reduce using rule 5 (storyline -> epsilon .)
+
+
+state 8
+
+    (1) start -> moviename storyline language . director producer writer boxoffice runtime crew
+    (8) director -> . director dval
+    (9) director -> . dval
+    (10) director -> . epsilon
+    (11) dval -> . LDIR
+    (31) epsilon -> .
+
+  ! shift/reduce conflict for LDIR resolved as shift
+    LDIR            shift and go to state 14
+    CELEBRITY       reduce using rule 31 (epsilon -> .)
+    separator       reduce using rule 31 (epsilon -> .)
+    BOXOFFICE       reduce using rule 31 (epsilon -> .)
+    RUNTIME         reduce using rule 31 (epsilon -> .)
+    ACTUALNAME      reduce using rule 31 (epsilon -> .)
+    CHARNAME        reduce using rule 31 (epsilon -> .)
+    $end            reduce using rule 31 (epsilon -> .)
+
+  ! LDIR            [ reduce using rule 31 (epsilon -> .) ]
+
+    director                       shift and go to state 11
+    dval                           shift and go to state 12
+    epsilon                        shift and go to state 13
+
+state 9
+
+    (6) language -> LLANGUAGE .
+
+    LDIR            reduce using rule 6 (language -> LLANGUAGE .)
+    CELEBRITY       reduce using rule 6 (language -> LLANGUAGE .)
+    separator       reduce using rule 6 (language -> LLANGUAGE .)
+    BOXOFFICE       reduce using rule 6 (language -> LLANGUAGE .)
+    RUNTIME         reduce using rule 6 (language -> LLANGUAGE .)
+    ACTUALNAME      reduce using rule 6 (language -> LLANGUAGE .)
+    CHARNAME        reduce using rule 6 (language -> LLANGUAGE .)
+    $end            reduce using rule 6 (language -> LLANGUAGE .)
+
+
+state 10
+
+    (7) language -> epsilon .
+
+    LDIR            reduce using rule 7 (language -> epsilon .)
+    CELEBRITY       reduce using rule 7 (language -> epsilon .)
+    separator       reduce using rule 7 (language -> epsilon .)
+    BOXOFFICE       reduce using rule 7 (language -> epsilon .)
+    RUNTIME         reduce using rule 7 (language -> epsilon .)
+    ACTUALNAME      reduce using rule 7 (language -> epsilon .)
+    CHARNAME        reduce using rule 7 (language -> epsilon .)
+    $end            reduce using rule 7 (language -> epsilon .)
+
+
+state 11
+
+    (1) start -> moviename storyline language director . producer writer boxoffice runtime crew
+    (8) director -> director . dval
+    (12) producer -> . lprod producer
+    (13) producer -> . lprod
+    (14) producer -> . epsilon
+    (11) dval -> . LDIR
+    (20) lprod -> . CELEBRITY
+    (31) epsilon -> .
+
+  ! shift/reduce conflict for CELEBRITY resolved as shift
+    LDIR            shift and go to state 14
+    CELEBRITY       shift and go to state 19
+    separator       reduce using rule 31 (epsilon -> .)
+    BOXOFFICE       reduce using rule 31 (epsilon -> .)
+    RUNTIME         reduce using rule 31 (epsilon -> .)
+    ACTUALNAME      reduce using rule 31 (epsilon -> .)
+    CHARNAME        reduce using rule 31 (epsilon -> .)
+    $end            reduce using rule 31 (epsilon -> .)
+
+  ! CELEBRITY       [ reduce using rule 31 (epsilon -> .) ]
+
+    producer                       shift and go to state 15
+    dval                           shift and go to state 16
+    lprod                          shift and go to state 17
+    epsilon                        shift and go to state 18
+
+state 12
+
+    (9) director -> dval .
+
+    LDIR            reduce using rule 9 (director -> dval .)
+    CELEBRITY       reduce using rule 9 (director -> dval .)
+    separator       reduce using rule 9 (director -> dval .)
+    BOXOFFICE       reduce using rule 9 (director -> dval .)
+    RUNTIME         reduce using rule 9 (director -> dval .)
+    ACTUALNAME      reduce using rule 9 (director -> dval .)
+    CHARNAME        reduce using rule 9 (director -> dval .)
+    $end            reduce using rule 9 (director -> dval .)
+
+
+state 13
+
+    (10) director -> epsilon .
+
+    LDIR            reduce using rule 10 (director -> epsilon .)
+    CELEBRITY       reduce using rule 10 (director -> epsilon .)
+    separator       reduce using rule 10 (director -> epsilon .)
+    BOXOFFICE       reduce using rule 10 (director -> epsilon .)
+    RUNTIME         reduce using rule 10 (director -> epsilon .)
+    ACTUALNAME      reduce using rule 10 (director -> epsilon .)
+    CHARNAME        reduce using rule 10 (director -> epsilon .)
+    $end            reduce using rule 10 (director -> epsilon .)
+
+
+state 14
+
+    (11) dval -> LDIR .
+
+    LDIR            reduce using rule 11 (dval -> LDIR .)
+    CELEBRITY       reduce using rule 11 (dval -> LDIR .)
+    separator       reduce using rule 11 (dval -> LDIR .)
+    BOXOFFICE       reduce using rule 11 (dval -> LDIR .)
+    RUNTIME         reduce using rule 11 (dval -> LDIR .)
+    ACTUALNAME      reduce using rule 11 (dval -> LDIR .)
+    CHARNAME        reduce using rule 11 (dval -> LDIR .)
+    $end            reduce using rule 11 (dval -> LDIR .)
+
+
+state 15
+
+    (1) start -> moviename storyline language director producer . writer boxoffice runtime crew
+    (15) writer -> . separator lwrite writer
+    (16) writer -> . lwrite writer
+    (17) writer -> . lwrite
+    (18) writer -> . epsilon
+    (19) lwrite -> . CELEBRITY
+    (31) epsilon -> .
+
+    separator       shift and go to state 21
+    CELEBRITY       shift and go to state 24
+    BOXOFFICE       reduce using rule 31 (epsilon -> .)
+    RUNTIME         reduce using rule 31 (epsilon -> .)
+    ACTUALNAME      reduce using rule 31 (epsilon -> .)
+    CHARNAME        reduce using rule 31 (epsilon -> .)
+    $end            reduce using rule 31 (epsilon -> .)
+
+    writer                         shift and go to state 20
+    lwrite                         shift and go to state 22
+    epsilon                        shift and go to state 23
+
+state 16
+
+    (8) director -> director dval .
+
+    LDIR            reduce using rule 8 (director -> director dval .)
+    CELEBRITY       reduce using rule 8 (director -> director dval .)
+    separator       reduce using rule 8 (director -> director dval .)
+    BOXOFFICE       reduce using rule 8 (director -> director dval .)
+    RUNTIME         reduce using rule 8 (director -> director dval .)
+    ACTUALNAME      reduce using rule 8 (director -> director dval .)
+    CHARNAME        reduce using rule 8 (director -> director dval .)
+    $end            reduce using rule 8 (director -> director dval .)
+
+
+state 17
+
+    (12) producer -> lprod . producer
+    (13) producer -> lprod .
+    (12) producer -> . lprod producer
+    (13) producer -> . lprod
+    (14) producer -> . epsilon
+    (20) lprod -> . CELEBRITY
+    (31) epsilon -> .
+
+  ! shift/reduce conflict for CELEBRITY resolved as shift
+  ! reduce/reduce conflict for separator resolved using rule 13 (producer -> lprod .)
+  ! shift/reduce conflict for CELEBRITY resolved as shift
+  ! reduce/reduce conflict for BOXOFFICE resolved using rule 13 (producer -> lprod .)
+  ! reduce/reduce conflict for RUNTIME resolved using rule 13 (producer -> lprod .)
+  ! reduce/reduce conflict for ACTUALNAME resolved using rule 13 (producer -> lprod .)
+  ! reduce/reduce conflict for CHARNAME resolved using rule 13 (producer -> lprod .)
+  ! reduce/reduce conflict for $end resolved using rule 13 (producer -> lprod .)
+    separator       reduce using rule 13 (producer -> lprod .)
+    BOXOFFICE       reduce using rule 13 (producer -> lprod .)
+    RUNTIME         reduce using rule 13 (producer -> lprod .)
+    ACTUALNAME      reduce using rule 13 (producer -> lprod .)
+    CHARNAME        reduce using rule 13 (producer -> lprod .)
+    $end            reduce using rule 13 (producer -> lprod .)
+    CELEBRITY       shift and go to state 19
+
+  ! CELEBRITY       [ reduce using rule 13 (producer -> lprod .) ]
+  ! separator       [ reduce using rule 31 (epsilon -> .) ]
+  ! CELEBRITY       [ reduce using rule 31 (epsilon -> .) ]
+  ! BOXOFFICE       [ reduce using rule 31 (epsilon -> .) ]
+  ! RUNTIME         [ reduce using rule 31 (epsilon -> .) ]
+  ! ACTUALNAME      [ reduce using rule 31 (epsilon -> .) ]
+  ! CHARNAME        [ reduce using rule 31 (epsilon -> .) ]
+  ! $end            [ reduce using rule 31 (epsilon -> .) ]
+
+    lprod                          shift and go to state 17
+    producer                       shift and go to state 25
+    epsilon                        shift and go to state 18
+
+state 18
+
+    (14) producer -> epsilon .
+
+    separator       reduce using rule 14 (producer -> epsilon .)
+    CELEBRITY       reduce using rule 14 (producer -> epsilon .)
+    BOXOFFICE       reduce using rule 14 (producer -> epsilon .)
+    RUNTIME         reduce using rule 14 (producer -> epsilon .)
+    ACTUALNAME      reduce using rule 14 (producer -> epsilon .)
+    CHARNAME        reduce using rule 14 (producer -> epsilon .)
+    $end            reduce using rule 14 (producer -> epsilon .)
+
+
+state 19
+
+    (20) lprod -> CELEBRITY .
+
+    CELEBRITY       reduce using rule 20 (lprod -> CELEBRITY .)
+    separator       reduce using rule 20 (lprod -> CELEBRITY .)
+    BOXOFFICE       reduce using rule 20 (lprod -> CELEBRITY .)
+    RUNTIME         reduce using rule 20 (lprod -> CELEBRITY .)
+    ACTUALNAME      reduce using rule 20 (lprod -> CELEBRITY .)
+    CHARNAME        reduce using rule 20 (lprod -> CELEBRITY .)
+    $end            reduce using rule 20 (lprod -> CELEBRITY .)
+
+
+state 20
+
+    (1) start -> moviename storyline language director producer writer . boxoffice runtime crew
+    (21) boxoffice -> . BOXOFFICE
+    (22) boxoffice -> . epsilon
+    (31) epsilon -> .
+
+    BOXOFFICE       shift and go to state 27
+    RUNTIME         reduce using rule 31 (epsilon -> .)
+    ACTUALNAME      reduce using rule 31 (epsilon -> .)
+    CHARNAME        reduce using rule 31 (epsilon -> .)
+    $end            reduce using rule 31 (epsilon -> .)
+
+    boxoffice                      shift and go to state 26
+    epsilon                        shift and go to state 28
+
+state 21
+
+    (15) writer -> separator . lwrite writer
+    (19) lwrite -> . CELEBRITY
+
+    CELEBRITY       shift and go to state 24
+
+    lwrite                         shift and go to state 29
+
+state 22
+
+    (16) writer -> lwrite . writer
+    (17) writer -> lwrite .
+    (15) writer -> . separator lwrite writer
+    (16) writer -> . lwrite writer
+    (17) writer -> . lwrite
+    (18) writer -> . epsilon
+    (19) lwrite -> . CELEBRITY
+    (31) epsilon -> .
+
+  ! reduce/reduce conflict for BOXOFFICE resolved using rule 17 (writer -> lwrite .)
+  ! reduce/reduce conflict for RUNTIME resolved using rule 17 (writer -> lwrite .)
+  ! reduce/reduce conflict for ACTUALNAME resolved using rule 17 (writer -> lwrite .)
+  ! reduce/reduce conflict for CHARNAME resolved using rule 17 (writer -> lwrite .)
+  ! reduce/reduce conflict for $end resolved using rule 17 (writer -> lwrite .)
+    BOXOFFICE       reduce using rule 17 (writer -> lwrite .)
+    RUNTIME         reduce using rule 17 (writer -> lwrite .)
+    ACTUALNAME      reduce using rule 17 (writer -> lwrite .)
+    CHARNAME        reduce using rule 17 (writer -> lwrite .)
+    $end            reduce using rule 17 (writer -> lwrite .)
+    separator       shift and go to state 21
+    CELEBRITY       shift and go to state 24
+
+  ! BOXOFFICE       [ reduce using rule 31 (epsilon -> .) ]
+  ! RUNTIME         [ reduce using rule 31 (epsilon -> .) ]
+  ! ACTUALNAME      [ reduce using rule 31 (epsilon -> .) ]
+  ! CHARNAME        [ reduce using rule 31 (epsilon -> .) ]
+  ! $end            [ reduce using rule 31 (epsilon -> .) ]
+
+    lwrite                         shift and go to state 22
+    writer                         shift and go to state 30
+    epsilon                        shift and go to state 23
+
+state 23
+
+    (18) writer -> epsilon .
+
+    BOXOFFICE       reduce using rule 18 (writer -> epsilon .)
+    RUNTIME         reduce using rule 18 (writer -> epsilon .)
+    ACTUALNAME      reduce using rule 18 (writer -> epsilon .)
+    CHARNAME        reduce using rule 18 (writer -> epsilon .)
+    $end            reduce using rule 18 (writer -> epsilon .)
+
+
+state 24
+
+    (19) lwrite -> CELEBRITY .
+
+    separator       reduce using rule 19 (lwrite -> CELEBRITY .)
+    CELEBRITY       reduce using rule 19 (lwrite -> CELEBRITY .)
+    BOXOFFICE       reduce using rule 19 (lwrite -> CELEBRITY .)
+    RUNTIME         reduce using rule 19 (lwrite -> CELEBRITY .)
+    ACTUALNAME      reduce using rule 19 (lwrite -> CELEBRITY .)
+    CHARNAME        reduce using rule 19 (lwrite -> CELEBRITY .)
+    $end            reduce using rule 19 (lwrite -> CELEBRITY .)
+
+
+state 25
+
+    (12) producer -> lprod producer .
+
+    separator       reduce using rule 12 (producer -> lprod producer .)
+    CELEBRITY       reduce using rule 12 (producer -> lprod producer .)
+    BOXOFFICE       reduce using rule 12 (producer -> lprod producer .)
+    RUNTIME         reduce using rule 12 (producer -> lprod producer .)
+    ACTUALNAME      reduce using rule 12 (producer -> lprod producer .)
+    CHARNAME        reduce using rule 12 (producer -> lprod producer .)
+    $end            reduce using rule 12 (producer -> lprod producer .)
+
+
+state 26
+
+    (1) start -> moviename storyline language director producer writer boxoffice . runtime crew
+    (23) runtime -> . RUNTIME
+    (24) runtime -> . epsilon
+    (31) epsilon -> .
+
+    RUNTIME         shift and go to state 32
+    ACTUALNAME      reduce using rule 31 (epsilon -> .)
+    CHARNAME        reduce using rule 31 (epsilon -> .)
+    $end            reduce using rule 31 (epsilon -> .)
+
+    runtime                        shift and go to state 31
+    epsilon                        shift and go to state 33
+
+state 27
+
+    (21) boxoffice -> BOXOFFICE .
+
+    RUNTIME         reduce using rule 21 (boxoffice -> BOXOFFICE .)
+    ACTUALNAME      reduce using rule 21 (boxoffice -> BOXOFFICE .)
+    CHARNAME        reduce using rule 21 (boxoffice -> BOXOFFICE .)
+    $end            reduce using rule 21 (boxoffice -> BOXOFFICE .)
+
+
+state 28
+
+    (22) boxoffice -> epsilon .
+
+    RUNTIME         reduce using rule 22 (boxoffice -> epsilon .)
+    ACTUALNAME      reduce using rule 22 (boxoffice -> epsilon .)
+    CHARNAME        reduce using rule 22 (boxoffice -> epsilon .)
+    $end            reduce using rule 22 (boxoffice -> epsilon .)
+
+
+state 29
+
+    (15) writer -> separator lwrite . writer
+    (15) writer -> . separator lwrite writer
+    (16) writer -> . lwrite writer
+    (17) writer -> . lwrite
+    (18) writer -> . epsilon
+    (19) lwrite -> . CELEBRITY
+    (31) epsilon -> .
+
+    separator       shift and go to state 21
+    CELEBRITY       shift and go to state 24
+    BOXOFFICE       reduce using rule 31 (epsilon -> .)
+    RUNTIME         reduce using rule 31 (epsilon -> .)
+    ACTUALNAME      reduce using rule 31 (epsilon -> .)
+    CHARNAME        reduce using rule 31 (epsilon -> .)
+    $end            reduce using rule 31 (epsilon -> .)
+
+    lwrite                         shift and go to state 22
+    writer                         shift and go to state 34
+    epsilon                        shift and go to state 23
+
+state 30
+
+    (16) writer -> lwrite writer .
+
+    BOXOFFICE       reduce using rule 16 (writer -> lwrite writer .)
+    RUNTIME         reduce using rule 16 (writer -> lwrite writer .)
+    ACTUALNAME      reduce using rule 16 (writer -> lwrite writer .)
+    CHARNAME        reduce using rule 16 (writer -> lwrite writer .)
+    $end            reduce using rule 16 (writer -> lwrite writer .)
+
+
+state 31
+
+    (1) start -> moviename storyline language director producer writer boxoffice runtime . crew
+    (25) crew -> . crew lcast
+    (26) crew -> . lcast
+    (27) crew -> . epsilon
+    (28) lcast -> . ACTUALNAME CHARNAME
+    (29) lcast -> . ACTUALNAME epsilon
+    (30) lcast -> . epsilon CHARNAME
+    (31) epsilon -> .
+
+  ! shift/reduce conflict for ACTUALNAME resolved as shift
+    ACTUALNAME      shift and go to state 38
+    CHARNAME        reduce using rule 31 (epsilon -> .)
+    $end            reduce using rule 31 (epsilon -> .)
+
+  ! ACTUALNAME      [ reduce using rule 31 (epsilon -> .) ]
+
+    crew                           shift and go to state 35
+    lcast                          shift and go to state 36
+    epsilon                        shift and go to state 37
+
+state 32
+
+    (23) runtime -> RUNTIME .
+
+    ACTUALNAME      reduce using rule 23 (runtime -> RUNTIME .)
+    CHARNAME        reduce using rule 23 (runtime -> RUNTIME .)
+    $end            reduce using rule 23 (runtime -> RUNTIME .)
+
+
+state 33
+
+    (24) runtime -> epsilon .
+
+    ACTUALNAME      reduce using rule 24 (runtime -> epsilon .)
+    CHARNAME        reduce using rule 24 (runtime -> epsilon .)
+    $end            reduce using rule 24 (runtime -> epsilon .)
+
+
+state 34
+
+    (15) writer -> separator lwrite writer .
+
+    BOXOFFICE       reduce using rule 15 (writer -> separator lwrite writer .)
+    RUNTIME         reduce using rule 15 (writer -> separator lwrite writer .)
+    ACTUALNAME      reduce using rule 15 (writer -> separator lwrite writer .)
+    CHARNAME        reduce using rule 15 (writer -> separator lwrite writer .)
+    $end            reduce using rule 15 (writer -> separator lwrite writer .)
+
+
+state 35
+
+    (1) start -> moviename storyline language director producer writer boxoffice runtime crew .
+    (25) crew -> crew . lcast
+    (28) lcast -> . ACTUALNAME CHARNAME
+    (29) lcast -> . ACTUALNAME epsilon
+    (30) lcast -> . epsilon CHARNAME
+    (31) epsilon -> .
+
+    $end            reduce using rule 1 (start -> moviename storyline language director producer writer boxoffice runtime crew .)
+    ACTUALNAME      shift and go to state 38
+    CHARNAME        reduce using rule 31 (epsilon -> .)
+
+    lcast                          shift and go to state 39
+    epsilon                        shift and go to state 40
+
+state 36
+
+    (26) crew -> lcast .
+
+    ACTUALNAME      reduce using rule 26 (crew -> lcast .)
+    CHARNAME        reduce using rule 26 (crew -> lcast .)
+    $end            reduce using rule 26 (crew -> lcast .)
+
+
+state 37
+
+    (27) crew -> epsilon .
+    (30) lcast -> epsilon . CHARNAME
+
+  ! shift/reduce conflict for CHARNAME resolved as shift
+    ACTUALNAME      reduce using rule 27 (crew -> epsilon .)
+    $end            reduce using rule 27 (crew -> epsilon .)
+    CHARNAME        shift and go to state 41
+
+  ! CHARNAME        [ reduce using rule 27 (crew -> epsilon .) ]
+
+
+state 38
+
+    (28) lcast -> ACTUALNAME . CHARNAME
+    (29) lcast -> ACTUALNAME . epsilon
+    (31) epsilon -> .
+
+  ! shift/reduce conflict for CHARNAME resolved as shift
+    CHARNAME        shift and go to state 42
+    ACTUALNAME      reduce using rule 31 (epsilon -> .)
+    $end            reduce using rule 31 (epsilon -> .)
+
+  ! CHARNAME        [ reduce using rule 31 (epsilon -> .) ]
+
+    epsilon                        shift and go to state 43
+
+state 39
+
+    (25) crew -> crew lcast .
+
+    ACTUALNAME      reduce using rule 25 (crew -> crew lcast .)
+    CHARNAME        reduce using rule 25 (crew -> crew lcast .)
+    $end            reduce using rule 25 (crew -> crew lcast .)
+
+
+state 40
+
+    (30) lcast -> epsilon . CHARNAME
+
+    CHARNAME        shift and go to state 41
+
+
+state 41
+
+    (30) lcast -> epsilon CHARNAME .
+
+    ACTUALNAME      reduce using rule 30 (lcast -> epsilon CHARNAME .)
+    CHARNAME        reduce using rule 30 (lcast -> epsilon CHARNAME .)
+    $end            reduce using rule 30 (lcast -> epsilon CHARNAME .)
+
+
+state 42
+
+    (28) lcast -> ACTUALNAME CHARNAME .
+
+    ACTUALNAME      reduce using rule 28 (lcast -> ACTUALNAME CHARNAME .)
+    CHARNAME        reduce using rule 28 (lcast -> ACTUALNAME CHARNAME .)
+    $end            reduce using rule 28 (lcast -> ACTUALNAME CHARNAME .)
+
+
+state 43
+
+    (29) lcast -> ACTUALNAME epsilon .
+
+    ACTUALNAME      reduce using rule 29 (lcast -> ACTUALNAME epsilon .)
+    CHARNAME        reduce using rule 29 (lcast -> ACTUALNAME epsilon .)
+    $end            reduce using rule 29 (lcast -> ACTUALNAME epsilon .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for LDIR in state 8 resolved as shift
+WARNING: shift/reduce conflict for CELEBRITY in state 11 resolved as shift
+WARNING: shift/reduce conflict for CELEBRITY in state 17 resolved as shift
+WARNING: shift/reduce conflict for CELEBRITY in state 17 resolved as shift
+WARNING: shift/reduce conflict for ACTUALNAME in state 31 resolved as shift
+WARNING: shift/reduce conflict for CHARNAME in state 37 resolved as shift
+WARNING: shift/reduce conflict for CHARNAME in state 38 resolved as shift
+WARNING: reduce/reduce conflict in state 17 resolved using rule (producer -> lprod)
+WARNING: rejected rule (epsilon -> <empty>) in state 17
+WARNING: reduce/reduce conflict in state 22 resolved using rule (writer -> lwrite)
+WARNING: rejected rule (epsilon -> <empty>) in state 22

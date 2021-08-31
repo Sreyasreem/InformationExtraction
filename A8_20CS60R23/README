@@ -1,0 +1,14 @@
+Name             : Sreyasree Mandal
+Roll no.         : 20CS60R23
+OPERATING SYSTEM : UBUNTU 20.04
+Language         : Python3
+Assignment       : 8
+
+How to run each query:
+	(i) open a terminal inside each query directory
+	(ii) type the following at the terminal: make
+	
+task.py contains both task1 and task 2 of this assignement. task.py takes multiple user entered films per run.
+webcrawl.py takes single movie as input from the user.
+
+NOTE: Enter the names  of the genres, movies and fields exactly as given in the list. They are case and character sensitive.

@@ -1,0 +1,1347 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> start
+Rule 1     start -> moviename simMov whereTowatch storyline language director producer writer boxoffice runtime crew
+Rule 2     start -> highestRated lowestRated birthday exception movieList
+Rule 3     start -> highestRated lowestRated birthday movieList
+Rule 4     moviename -> LMOVIE
+Rule 5     moviename -> epsilon
+Rule 6     simMov -> simMov dmov
+Rule 7     simMov -> dmov
+Rule 8     dmov -> similarMovLink similarMov
+Rule 9     dmov -> similarMovLink epsilon
+Rule 10    dmov -> epsilon similarMov
+Rule 11    whereTowatch -> whereTowatch dwatch
+Rule 12    whereTowatch -> dwatch
+Rule 13    dwatch -> onlineplatform
+Rule 14    dwatch -> epsilon
+Rule 15    storyline -> LSTORY
+Rule 16    storyline -> epsilon
+Rule 17    language -> LLANGUAGE
+Rule 18    language -> epsilon
+Rule 19    director -> director dval
+Rule 20    director -> dval
+Rule 21    dval -> LDIR
+Rule 22    dval -> epsilon
+Rule 23    producer -> lprod producer
+Rule 24    producer -> lprod
+Rule 25    writer -> separator lwrite writer
+Rule 26    writer -> lwrite writer
+Rule 27    writer -> lwrite
+Rule 28    lwrite -> CELEBRITY
+Rule 29    lwrite -> epsilon
+Rule 30    lprod -> CELEBRITY
+Rule 31    lprod -> epsilon
+Rule 32    boxoffice -> BOXOFFICE
+Rule 33    boxoffice -> epsilon
+Rule 34    runtime -> RUNTIME
+Rule 35    runtime -> epsilon
+Rule 36    crew -> crew lcast
+Rule 37    crew -> lcast
+Rule 38    lcast -> LINK ACTUALNAME CHARNAME
+Rule 39    lcast -> LINK ACTUALNAME epsilon
+Rule 40    lcast -> LINK epsilon CHARNAME
+Rule 41    lcast -> epsilon ACTUALNAME CHARNAME
+Rule 42    lcast -> epsilon ACTUALNAME epsilon
+Rule 43    highestRated -> HIGHF
+Rule 44    highestRated -> epsilon
+Rule 45    lowestRated -> LOWF
+Rule 46    lowestRated -> epsilon
+Rule 47    birthday -> BDATE
+Rule 48    birthday -> epsilon
+Rule 49    exception -> CELEBRITY
+Rule 50    movieList -> mlist movieList
+Rule 51    movieList -> mlist
+Rule 52    mlist -> MOVIELIST MYEAR
+Rule 53    mlist -> MOVIELIST epsilon
+Rule 54    mlist -> epsilon MYEAR
+Rule 55    epsilon -> <empty>
+
+Terminals, with rules where they appear
+
+ACTUALNAME           : 38 39 41 42
+BDATE                : 47
+BOXOFFICE            : 32
+CELEBRITY            : 28 30 49
+CHARNAME             : 38 40 41
+HIGHF                : 43
+LDIR                 : 21
+LINK                 : 38 39 40
+LLANGUAGE            : 17
+LMOVIE               : 4
+LOWF                 : 45
+LSTORY               : 15
+MOVIELIST            : 52 53
+MYEAR                : 52 54
+RUNTIME              : 34
+error                : 
+onlineplatform       : 13
+separator            : 25
+similarMov           : 8 10
+similarMovLink       : 8 9
+
+Nonterminals, with rules where they appear
+
+birthday             : 2 3
+boxoffice            : 1
+crew                 : 1 36
+director             : 1 19
+dmov                 : 6 7
+dval                 : 19 20
+dwatch               : 11 12
+epsilon              : 5 9 10 14 16 18 22 29 31 33 35 39 40 41 42 42 44 46 48 53 54
+exception            : 2
+highestRated         : 2 3
+language             : 1
+lcast                : 36 37
+lowestRated          : 2 3
+lprod                : 23 24
+lwrite               : 25 26 27
+mlist                : 50 51
+movieList            : 2 3 50
+moviename            : 1
+producer             : 1 23
+runtime              : 1
+simMov               : 1 6
+start                : 0
+storyline            : 1
+whereTowatch         : 1 11
+writer               : 1 25 26
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . start
+    (1) start -> . moviename simMov whereTowatch storyline language director producer writer boxoffice runtime crew
+    (2) start -> . highestRated lowestRated birthday exception movieList
+    (3) start -> . highestRated lowestRated birthday movieList
+    (4) moviename -> . LMOVIE
+    (5) moviename -> . epsilon
+    (43) highestRated -> . HIGHF
+    (44) highestRated -> . epsilon
+    (55) epsilon -> .
+
+    LMOVIE          shift and go to state 4
+    HIGHF           shift and go to state 6
+    similarMovLink  reduce using rule 55 (epsilon -> .)
+    similarMov      reduce using rule 55 (epsilon -> .)
+    LOWF            reduce using rule 55 (epsilon -> .)
+    BDATE           reduce using rule 55 (epsilon -> .)
+    CELEBRITY       reduce using rule 55 (epsilon -> .)
+    MOVIELIST       reduce using rule 55 (epsilon -> .)
+    MYEAR           reduce using rule 55 (epsilon -> .)
+
+    start                          shift and go to state 1
+    moviename                      shift and go to state 2
+    highestRated                   shift and go to state 3
+    epsilon                        shift and go to state 5
+
+state 1
+
+    (0) S' -> start .
+
+
+
+state 2
+
+    (1) start -> moviename . simMov whereTowatch storyline language director producer writer boxoffice runtime crew
+    (6) simMov -> . simMov dmov
+    (7) simMov -> . dmov
+    (8) dmov -> . similarMovLink similarMov
+    (9) dmov -> . similarMovLink epsilon
+    (10) dmov -> . epsilon similarMov
+    (55) epsilon -> .
+
+    similarMovLink  shift and go to state 9
+    similarMov      reduce using rule 55 (epsilon -> .)
+
+    simMov                         shift and go to state 7
+    dmov                           shift and go to state 8
+    epsilon                        shift and go to state 10
+
+state 3
+
+    (2) start -> highestRated . lowestRated birthday exception movieList
+    (3) start -> highestRated . lowestRated birthday movieList
+    (45) lowestRated -> . LOWF
+    (46) lowestRated -> . epsilon
+    (55) epsilon -> .
+
+    LOWF            shift and go to state 12
+    BDATE           reduce using rule 55 (epsilon -> .)
+    CELEBRITY       reduce using rule 55 (epsilon -> .)
+    MOVIELIST       reduce using rule 55 (epsilon -> .)
+    MYEAR           reduce using rule 55 (epsilon -> .)
+
+    lowestRated                    shift and go to state 11
+    epsilon                        shift and go to state 13
+
+state 4
+
+    (4) moviename -> LMOVIE .
+
+    similarMovLink  reduce using rule 4 (moviename -> LMOVIE .)
+    similarMov      reduce using rule 4 (moviename -> LMOVIE .)
+
+
+state 5
+
+    (5) moviename -> epsilon .
+    (44) highestRated -> epsilon .
+
+    similarMovLink  reduce using rule 5 (moviename -> epsilon .)
+    similarMov      reduce using rule 5 (moviename -> epsilon .)
+    LOWF            reduce using rule 44 (highestRated -> epsilon .)
+    BDATE           reduce using rule 44 (highestRated -> epsilon .)
+    CELEBRITY       reduce using rule 44 (highestRated -> epsilon .)
+    MOVIELIST       reduce using rule 44 (highestRated -> epsilon .)
+    MYEAR           reduce using rule 44 (highestRated -> epsilon .)
+
+
+state 6
+
+    (43) highestRated -> HIGHF .
+
+    LOWF            reduce using rule 43 (highestRated -> HIGHF .)
+    BDATE           reduce using rule 43 (highestRated -> HIGHF .)
+    CELEBRITY       reduce using rule 43 (highestRated -> HIGHF .)
+    MOVIELIST       reduce using rule 43 (highestRated -> HIGHF .)
+    MYEAR           reduce using rule 43 (highestRated -> HIGHF .)
+
+
+state 7
+
+    (1) start -> moviename simMov . whereTowatch storyline language director producer writer boxoffice runtime crew
+    (6) simMov -> simMov . dmov
+    (11) whereTowatch -> . whereTowatch dwatch
+    (12) whereTowatch -> . dwatch
+    (8) dmov -> . similarMovLink similarMov
+    (9) dmov -> . similarMovLink epsilon
+    (10) dmov -> . epsilon similarMov
+    (13) dwatch -> . onlineplatform
+    (14) dwatch -> . epsilon
+    (55) epsilon -> .
+
+  ! shift/reduce conflict for onlineplatform resolved as shift
+    similarMovLink  shift and go to state 9
+    onlineplatform  shift and go to state 18
+    similarMov      reduce using rule 55 (epsilon -> .)
+    LSTORY          reduce using rule 55 (epsilon -> .)
+    LLANGUAGE       reduce using rule 55 (epsilon -> .)
+    LDIR            reduce using rule 55 (epsilon -> .)
+    CELEBRITY       reduce using rule 55 (epsilon -> .)
+    separator       reduce using rule 55 (epsilon -> .)
+    BOXOFFICE       reduce using rule 55 (epsilon -> .)
+    RUNTIME         reduce using rule 55 (epsilon -> .)
+    LINK            reduce using rule 55 (epsilon -> .)
+    ACTUALNAME      reduce using rule 55 (epsilon -> .)
+
+  ! onlineplatform  [ reduce using rule 55 (epsilon -> .) ]
+
+    whereTowatch                   shift and go to state 14
+    dmov                           shift and go to state 15
+    dwatch                         shift and go to state 16
+    epsilon                        shift and go to state 17
+
+state 8
+
+    (7) simMov -> dmov .
+
+    similarMovLink  reduce using rule 7 (simMov -> dmov .)
+    onlineplatform  reduce using rule 7 (simMov -> dmov .)
+    LSTORY          reduce using rule 7 (simMov -> dmov .)
+    LLANGUAGE       reduce using rule 7 (simMov -> dmov .)
+    LDIR            reduce using rule 7 (simMov -> dmov .)
+    CELEBRITY       reduce using rule 7 (simMov -> dmov .)
+    separator       reduce using rule 7 (simMov -> dmov .)
+    BOXOFFICE       reduce using rule 7 (simMov -> dmov .)
+    RUNTIME         reduce using rule 7 (simMov -> dmov .)
+    LINK            reduce using rule 7 (simMov -> dmov .)
+    ACTUALNAME      reduce using rule 7 (simMov -> dmov .)
+    similarMov      reduce using rule 7 (simMov -> dmov .)
+
+
+state 9
+
+    (8) dmov -> similarMovLink . similarMov
+    (9) dmov -> similarMovLink . epsilon
+    (55) epsilon -> .
+
+  ! shift/reduce conflict for similarMov resolved as shift
+    similarMov      shift and go to state 19
+    similarMovLink  reduce using rule 55 (epsilon -> .)
+    onlineplatform  reduce using rule 55 (epsilon -> .)
+    LSTORY          reduce using rule 55 (epsilon -> .)
+    LLANGUAGE       reduce using rule 55 (epsilon -> .)
+    LDIR            reduce using rule 55 (epsilon -> .)
+    CELEBRITY       reduce using rule 55 (epsilon -> .)
+    separator       reduce using rule 55 (epsilon -> .)
+    BOXOFFICE       reduce using rule 55 (epsilon -> .)
+    RUNTIME         reduce using rule 55 (epsilon -> .)
+    LINK            reduce using rule 55 (epsilon -> .)
+    ACTUALNAME      reduce using rule 55 (epsilon -> .)
+
+  ! similarMov      [ reduce using rule 55 (epsilon -> .) ]
+
+    epsilon                        shift and go to state 20
+
+state 10
+
+    (10) dmov -> epsilon . similarMov
+
+    similarMov      shift and go to state 21
+
+
+state 11
+
+    (2) start -> highestRated lowestRated . birthday exception movieList
+    (3) start -> highestRated lowestRated . birthday movieList
+    (47) birthday -> . BDATE
+    (48) birthday -> . epsilon
+    (55) epsilon -> .
+
+    BDATE           shift and go to state 23
+    CELEBRITY       reduce using rule 55 (epsilon -> .)
+    MOVIELIST       reduce using rule 55 (epsilon -> .)
+    MYEAR           reduce using rule 55 (epsilon -> .)
+
+    birthday                       shift and go to state 22
+    epsilon                        shift and go to state 24
+
+state 12
+
+    (45) lowestRated -> LOWF .
+
+    BDATE           reduce using rule 45 (lowestRated -> LOWF .)
+    CELEBRITY       reduce using rule 45 (lowestRated -> LOWF .)
+    MOVIELIST       reduce using rule 45 (lowestRated -> LOWF .)
+    MYEAR           reduce using rule 45 (lowestRated -> LOWF .)
+
+
+state 13
+
+    (46) lowestRated -> epsilon .
+
+    BDATE           reduce using rule 46 (lowestRated -> epsilon .)
+    CELEBRITY       reduce using rule 46 (lowestRated -> epsilon .)
+    MOVIELIST       reduce using rule 46 (lowestRated -> epsilon .)
+    MYEAR           reduce using rule 46 (lowestRated -> epsilon .)
+
+
+state 14
+
+    (1) start -> moviename simMov whereTowatch . storyline language director producer writer boxoffice runtime crew
+    (11) whereTowatch -> whereTowatch . dwatch
+    (15) storyline -> . LSTORY
+    (16) storyline -> . epsilon
+    (13) dwatch -> . onlineplatform
+    (14) dwatch -> . epsilon
+    (55) epsilon -> .
+
+  ! shift/reduce conflict for LSTORY resolved as shift
+  ! shift/reduce conflict for onlineplatform resolved as shift
+    LSTORY          shift and go to state 27
+    onlineplatform  shift and go to state 18
+    LLANGUAGE       reduce using rule 55 (epsilon -> .)
+    LDIR            reduce using rule 55 (epsilon -> .)
+    CELEBRITY       reduce using rule 55 (epsilon -> .)
+    separator       reduce using rule 55 (epsilon -> .)
+    BOXOFFICE       reduce using rule 55 (epsilon -> .)
+    RUNTIME         reduce using rule 55 (epsilon -> .)
+    LINK            reduce using rule 55 (epsilon -> .)
+    ACTUALNAME      reduce using rule 55 (epsilon -> .)
+
+  ! LSTORY          [ reduce using rule 55 (epsilon -> .) ]
+  ! onlineplatform  [ reduce using rule 55 (epsilon -> .) ]
+
+    storyline                      shift and go to state 25
+    dwatch                         shift and go to state 26
+    epsilon                        shift and go to state 28
+
+state 15
+
+    (6) simMov -> simMov dmov .
+
+    similarMovLink  reduce using rule 6 (simMov -> simMov dmov .)
+    onlineplatform  reduce using rule 6 (simMov -> simMov dmov .)
+    LSTORY          reduce using rule 6 (simMov -> simMov dmov .)
+    LLANGUAGE       reduce using rule 6 (simMov -> simMov dmov .)
+    LDIR            reduce using rule 6 (simMov -> simMov dmov .)
+    CELEBRITY       reduce using rule 6 (simMov -> simMov dmov .)
+    separator       reduce using rule 6 (simMov -> simMov dmov .)
+    BOXOFFICE       reduce using rule 6 (simMov -> simMov dmov .)
+    RUNTIME         reduce using rule 6 (simMov -> simMov dmov .)
+    LINK            reduce using rule 6 (simMov -> simMov dmov .)
+    ACTUALNAME      reduce using rule 6 (simMov -> simMov dmov .)
+    similarMov      reduce using rule 6 (simMov -> simMov dmov .)
+
+
+state 16
+
+    (12) whereTowatch -> dwatch .
+
+    LSTORY          reduce using rule 12 (whereTowatch -> dwatch .)
+    onlineplatform  reduce using rule 12 (whereTowatch -> dwatch .)
+    LLANGUAGE       reduce using rule 12 (whereTowatch -> dwatch .)
+    LDIR            reduce using rule 12 (whereTowatch -> dwatch .)
+    CELEBRITY       reduce using rule 12 (whereTowatch -> dwatch .)
+    separator       reduce using rule 12 (whereTowatch -> dwatch .)
+    BOXOFFICE       reduce using rule 12 (whereTowatch -> dwatch .)
+    RUNTIME         reduce using rule 12 (whereTowatch -> dwatch .)
+    LINK            reduce using rule 12 (whereTowatch -> dwatch .)
+    ACTUALNAME      reduce using rule 12 (whereTowatch -> dwatch .)
+
+
+state 17
+
+    (10) dmov -> epsilon . similarMov
+    (14) dwatch -> epsilon .
+
+    similarMov      shift and go to state 21
+    LSTORY          reduce using rule 14 (dwatch -> epsilon .)
+    onlineplatform  reduce using rule 14 (dwatch -> epsilon .)
+    LLANGUAGE       reduce using rule 14 (dwatch -> epsilon .)
+    LDIR            reduce using rule 14 (dwatch -> epsilon .)
+    CELEBRITY       reduce using rule 14 (dwatch -> epsilon .)
+    separator       reduce using rule 14 (dwatch -> epsilon .)
+    BOXOFFICE       reduce using rule 14 (dwatch -> epsilon .)
+    RUNTIME         reduce using rule 14 (dwatch -> epsilon .)
+    LINK            reduce using rule 14 (dwatch -> epsilon .)
+    ACTUALNAME      reduce using rule 14 (dwatch -> epsilon .)
+
+
+state 18
+
+    (13) dwatch -> onlineplatform .
+
+    LSTORY          reduce using rule 13 (dwatch -> onlineplatform .)
+    onlineplatform  reduce using rule 13 (dwatch -> onlineplatform .)
+    LLANGUAGE       reduce using rule 13 (dwatch -> onlineplatform .)
+    LDIR            reduce using rule 13 (dwatch -> onlineplatform .)
+    CELEBRITY       reduce using rule 13 (dwatch -> onlineplatform .)
+    separator       reduce using rule 13 (dwatch -> onlineplatform .)
+    BOXOFFICE       reduce using rule 13 (dwatch -> onlineplatform .)
+    RUNTIME         reduce using rule 13 (dwatch -> onlineplatform .)
+    LINK            reduce using rule 13 (dwatch -> onlineplatform .)
+    ACTUALNAME      reduce using rule 13 (dwatch -> onlineplatform .)
+
+
+state 19
+
+    (8) dmov -> similarMovLink similarMov .
+
+    similarMovLink  reduce using rule 8 (dmov -> similarMovLink similarMov .)
+    onlineplatform  reduce using rule 8 (dmov -> similarMovLink similarMov .)
+    LSTORY          reduce using rule 8 (dmov -> similarMovLink similarMov .)
+    LLANGUAGE       reduce using rule 8 (dmov -> similarMovLink similarMov .)
+    LDIR            reduce using rule 8 (dmov -> similarMovLink similarMov .)
+    CELEBRITY       reduce using rule 8 (dmov -> similarMovLink similarMov .)
+    separator       reduce using rule 8 (dmov -> similarMovLink similarMov .)
+    BOXOFFICE       reduce using rule 8 (dmov -> similarMovLink similarMov .)
+    RUNTIME         reduce using rule 8 (dmov -> similarMovLink similarMov .)
+    LINK            reduce using rule 8 (dmov -> similarMovLink similarMov .)
+    ACTUALNAME      reduce using rule 8 (dmov -> similarMovLink similarMov .)
+    similarMov      reduce using rule 8 (dmov -> similarMovLink similarMov .)
+
+
+state 20
+
+    (9) dmov -> similarMovLink epsilon .
+
+    similarMovLink  reduce using rule 9 (dmov -> similarMovLink epsilon .)
+    onlineplatform  reduce using rule 9 (dmov -> similarMovLink epsilon .)
+    LSTORY          reduce using rule 9 (dmov -> similarMovLink epsilon .)
+    LLANGUAGE       reduce using rule 9 (dmov -> similarMovLink epsilon .)
+    LDIR            reduce using rule 9 (dmov -> similarMovLink epsilon .)
+    CELEBRITY       reduce using rule 9 (dmov -> similarMovLink epsilon .)
+    separator       reduce using rule 9 (dmov -> similarMovLink epsilon .)
+    BOXOFFICE       reduce using rule 9 (dmov -> similarMovLink epsilon .)
+    RUNTIME         reduce using rule 9 (dmov -> similarMovLink epsilon .)
+    LINK            reduce using rule 9 (dmov -> similarMovLink epsilon .)
+    ACTUALNAME      reduce using rule 9 (dmov -> similarMovLink epsilon .)
+    similarMov      reduce using rule 9 (dmov -> similarMovLink epsilon .)
+
+
+state 21
+
+    (10) dmov -> epsilon similarMov .
+
+    similarMovLink  reduce using rule 10 (dmov -> epsilon similarMov .)
+    onlineplatform  reduce using rule 10 (dmov -> epsilon similarMov .)
+    LSTORY          reduce using rule 10 (dmov -> epsilon similarMov .)
+    LLANGUAGE       reduce using rule 10 (dmov -> epsilon similarMov .)
+    LDIR            reduce using rule 10 (dmov -> epsilon similarMov .)
+    CELEBRITY       reduce using rule 10 (dmov -> epsilon similarMov .)
+    separator       reduce using rule 10 (dmov -> epsilon similarMov .)
+    BOXOFFICE       reduce using rule 10 (dmov -> epsilon similarMov .)
+    RUNTIME         reduce using rule 10 (dmov -> epsilon similarMov .)
+    LINK            reduce using rule 10 (dmov -> epsilon similarMov .)
+    ACTUALNAME      reduce using rule 10 (dmov -> epsilon similarMov .)
+    similarMov      reduce using rule 10 (dmov -> epsilon similarMov .)
+
+
+state 22
+
+    (2) start -> highestRated lowestRated birthday . exception movieList
+    (3) start -> highestRated lowestRated birthday . movieList
+    (49) exception -> . CELEBRITY
+    (50) movieList -> . mlist movieList
+    (51) movieList -> . mlist
+    (52) mlist -> . MOVIELIST MYEAR
+    (53) mlist -> . MOVIELIST epsilon
+    (54) mlist -> . epsilon MYEAR
+    (55) epsilon -> .
+
+    CELEBRITY       shift and go to state 31
+    MOVIELIST       shift and go to state 33
+    MYEAR           reduce using rule 55 (epsilon -> .)
+
+    exception                      shift and go to state 29
+    movieList                      shift and go to state 30
+    mlist                          shift and go to state 32
+    epsilon                        shift and go to state 34
+
+state 23
+
+    (47) birthday -> BDATE .
+
+    CELEBRITY       reduce using rule 47 (birthday -> BDATE .)
+    MOVIELIST       reduce using rule 47 (birthday -> BDATE .)
+    MYEAR           reduce using rule 47 (birthday -> BDATE .)
+
+
+state 24
+
+    (48) birthday -> epsilon .
+
+    CELEBRITY       reduce using rule 48 (birthday -> epsilon .)
+    MOVIELIST       reduce using rule 48 (birthday -> epsilon .)
+    MYEAR           reduce using rule 48 (birthday -> epsilon .)
+
+
+state 25
+
+    (1) start -> moviename simMov whereTowatch storyline . language director producer writer boxoffice runtime crew
+    (17) language -> . LLANGUAGE
+    (18) language -> . epsilon
+    (55) epsilon -> .
+
+    LLANGUAGE       shift and go to state 36
+    LDIR            reduce using rule 55 (epsilon -> .)
+    CELEBRITY       reduce using rule 55 (epsilon -> .)
+    separator       reduce using rule 55 (epsilon -> .)
+    BOXOFFICE       reduce using rule 55 (epsilon -> .)
+    RUNTIME         reduce using rule 55 (epsilon -> .)
+    LINK            reduce using rule 55 (epsilon -> .)
+    ACTUALNAME      reduce using rule 55 (epsilon -> .)
+
+    language                       shift and go to state 35
+    epsilon                        shift and go to state 37
+
+state 26
+
+    (11) whereTowatch -> whereTowatch dwatch .
+
+    LSTORY          reduce using rule 11 (whereTowatch -> whereTowatch dwatch .)
+    onlineplatform  reduce using rule 11 (whereTowatch -> whereTowatch dwatch .)
+    LLANGUAGE       reduce using rule 11 (whereTowatch -> whereTowatch dwatch .)
+    LDIR            reduce using rule 11 (whereTowatch -> whereTowatch dwatch .)
+    CELEBRITY       reduce using rule 11 (whereTowatch -> whereTowatch dwatch .)
+    separator       reduce using rule 11 (whereTowatch -> whereTowatch dwatch .)
+    BOXOFFICE       reduce using rule 11 (whereTowatch -> whereTowatch dwatch .)
+    RUNTIME         reduce using rule 11 (whereTowatch -> whereTowatch dwatch .)
+    LINK            reduce using rule 11 (whereTowatch -> whereTowatch dwatch .)
+    ACTUALNAME      reduce using rule 11 (whereTowatch -> whereTowatch dwatch .)
+
+
+state 27
+
+    (15) storyline -> LSTORY .
+
+    LLANGUAGE       reduce using rule 15 (storyline -> LSTORY .)
+    LDIR            reduce using rule 15 (storyline -> LSTORY .)
+    CELEBRITY       reduce using rule 15 (storyline -> LSTORY .)
+    separator       reduce using rule 15 (storyline -> LSTORY .)
+    BOXOFFICE       reduce using rule 15 (storyline -> LSTORY .)
+    RUNTIME         reduce using rule 15 (storyline -> LSTORY .)
+    LINK            reduce using rule 15 (storyline -> LSTORY .)
+    ACTUALNAME      reduce using rule 15 (storyline -> LSTORY .)
+
+
+state 28
+
+    (16) storyline -> epsilon .
+    (14) dwatch -> epsilon .
+
+  ! reduce/reduce conflict for LLANGUAGE resolved using rule 14 (dwatch -> epsilon .)
+  ! reduce/reduce conflict for LDIR resolved using rule 14 (dwatch -> epsilon .)
+  ! reduce/reduce conflict for CELEBRITY resolved using rule 14 (dwatch -> epsilon .)
+  ! reduce/reduce conflict for separator resolved using rule 14 (dwatch -> epsilon .)
+  ! reduce/reduce conflict for BOXOFFICE resolved using rule 14 (dwatch -> epsilon .)
+  ! reduce/reduce conflict for RUNTIME resolved using rule 14 (dwatch -> epsilon .)
+  ! reduce/reduce conflict for LINK resolved using rule 14 (dwatch -> epsilon .)
+  ! reduce/reduce conflict for ACTUALNAME resolved using rule 14 (dwatch -> epsilon .)
+    LSTORY          reduce using rule 14 (dwatch -> epsilon .)
+    onlineplatform  reduce using rule 14 (dwatch -> epsilon .)
+    LLANGUAGE       reduce using rule 14 (dwatch -> epsilon .)
+    LDIR            reduce using rule 14 (dwatch -> epsilon .)
+    CELEBRITY       reduce using rule 14 (dwatch -> epsilon .)
+    separator       reduce using rule 14 (dwatch -> epsilon .)
+    BOXOFFICE       reduce using rule 14 (dwatch -> epsilon .)
+    RUNTIME         reduce using rule 14 (dwatch -> epsilon .)
+    LINK            reduce using rule 14 (dwatch -> epsilon .)
+    ACTUALNAME      reduce using rule 14 (dwatch -> epsilon .)
+
+  ! LLANGUAGE       [ reduce using rule 16 (storyline -> epsilon .) ]
+  ! LDIR            [ reduce using rule 16 (storyline -> epsilon .) ]
+  ! CELEBRITY       [ reduce using rule 16 (storyline -> epsilon .) ]
+  ! separator       [ reduce using rule 16 (storyline -> epsilon .) ]
+  ! BOXOFFICE       [ reduce using rule 16 (storyline -> epsilon .) ]
+  ! RUNTIME         [ reduce using rule 16 (storyline -> epsilon .) ]
+  ! LINK            [ reduce using rule 16 (storyline -> epsilon .) ]
+  ! ACTUALNAME      [ reduce using rule 16 (storyline -> epsilon .) ]
+
+
+state 29
+
+    (2) start -> highestRated lowestRated birthday exception . movieList
+    (50) movieList -> . mlist movieList
+    (51) movieList -> . mlist
+    (52) mlist -> . MOVIELIST MYEAR
+    (53) mlist -> . MOVIELIST epsilon
+    (54) mlist -> . epsilon MYEAR
+    (55) epsilon -> .
+
+    MOVIELIST       shift and go to state 33
+    MYEAR           reduce using rule 55 (epsilon -> .)
+
+    movieList                      shift and go to state 38
+    mlist                          shift and go to state 32
+    epsilon                        shift and go to state 34
+
+state 30
+
+    (3) start -> highestRated lowestRated birthday movieList .
+
+    $end            reduce using rule 3 (start -> highestRated lowestRated birthday movieList .)
+
+
+state 31
+
+    (49) exception -> CELEBRITY .
+
+    MOVIELIST       reduce using rule 49 (exception -> CELEBRITY .)
+    MYEAR           reduce using rule 49 (exception -> CELEBRITY .)
+
+
+state 32
+
+    (50) movieList -> mlist . movieList
+    (51) movieList -> mlist .
+    (50) movieList -> . mlist movieList
+    (51) movieList -> . mlist
+    (52) mlist -> . MOVIELIST MYEAR
+    (53) mlist -> . MOVIELIST epsilon
+    (54) mlist -> . epsilon MYEAR
+    (55) epsilon -> .
+
+    $end            reduce using rule 51 (movieList -> mlist .)
+    MOVIELIST       shift and go to state 33
+    MYEAR           reduce using rule 55 (epsilon -> .)
+
+    mlist                          shift and go to state 32
+    movieList                      shift and go to state 39
+    epsilon                        shift and go to state 34
+
+state 33
+
+    (52) mlist -> MOVIELIST . MYEAR
+    (53) mlist -> MOVIELIST . epsilon
+    (55) epsilon -> .
+
+  ! shift/reduce conflict for MYEAR resolved as shift
+    MYEAR           shift and go to state 40
+    MOVIELIST       reduce using rule 55 (epsilon -> .)
+    $end            reduce using rule 55 (epsilon -> .)
+
+  ! MYEAR           [ reduce using rule 55 (epsilon -> .) ]
+
+    epsilon                        shift and go to state 41
+
+state 34
+
+    (54) mlist -> epsilon . MYEAR
+
+    MYEAR           shift and go to state 42
+
+
+state 35
+
+    (1) start -> moviename simMov whereTowatch storyline language . director producer writer boxoffice runtime crew
+    (19) director -> . director dval
+    (20) director -> . dval
+    (21) dval -> . LDIR
+    (22) dval -> . epsilon
+    (55) epsilon -> .
+
+  ! shift/reduce conflict for LDIR resolved as shift
+    LDIR            shift and go to state 45
+    CELEBRITY       reduce using rule 55 (epsilon -> .)
+    separator       reduce using rule 55 (epsilon -> .)
+    BOXOFFICE       reduce using rule 55 (epsilon -> .)
+    RUNTIME         reduce using rule 55 (epsilon -> .)
+    LINK            reduce using rule 55 (epsilon -> .)
+    ACTUALNAME      reduce using rule 55 (epsilon -> .)
+
+  ! LDIR            [ reduce using rule 55 (epsilon -> .) ]
+
+    director                       shift and go to state 43
+    dval                           shift and go to state 44
+    epsilon                        shift and go to state 46
+
+state 36
+
+    (17) language -> LLANGUAGE .
+
+    LDIR            reduce using rule 17 (language -> LLANGUAGE .)
+    CELEBRITY       reduce using rule 17 (language -> LLANGUAGE .)
+    separator       reduce using rule 17 (language -> LLANGUAGE .)
+    BOXOFFICE       reduce using rule 17 (language -> LLANGUAGE .)
+    RUNTIME         reduce using rule 17 (language -> LLANGUAGE .)
+    LINK            reduce using rule 17 (language -> LLANGUAGE .)
+    ACTUALNAME      reduce using rule 17 (language -> LLANGUAGE .)
+
+
+state 37
+
+    (18) language -> epsilon .
+
+    LDIR            reduce using rule 18 (language -> epsilon .)
+    CELEBRITY       reduce using rule 18 (language -> epsilon .)
+    separator       reduce using rule 18 (language -> epsilon .)
+    BOXOFFICE       reduce using rule 18 (language -> epsilon .)
+    RUNTIME         reduce using rule 18 (language -> epsilon .)
+    LINK            reduce using rule 18 (language -> epsilon .)
+    ACTUALNAME      reduce using rule 18 (language -> epsilon .)
+
+
+state 38
+
+    (2) start -> highestRated lowestRated birthday exception movieList .
+
+    $end            reduce using rule 2 (start -> highestRated lowestRated birthday exception movieList .)
+
+
+state 39
+
+    (50) movieList -> mlist movieList .
+
+    $end            reduce using rule 50 (movieList -> mlist movieList .)
+
+
+state 40
+
+    (52) mlist -> MOVIELIST MYEAR .
+
+    MOVIELIST       reduce using rule 52 (mlist -> MOVIELIST MYEAR .)
+    MYEAR           reduce using rule 52 (mlist -> MOVIELIST MYEAR .)
+    $end            reduce using rule 52 (mlist -> MOVIELIST MYEAR .)
+
+
+state 41
+
+    (53) mlist -> MOVIELIST epsilon .
+
+    MOVIELIST       reduce using rule 53 (mlist -> MOVIELIST epsilon .)
+    MYEAR           reduce using rule 53 (mlist -> MOVIELIST epsilon .)
+    $end            reduce using rule 53 (mlist -> MOVIELIST epsilon .)
+
+
+state 42
+
+    (54) mlist -> epsilon MYEAR .
+
+    MOVIELIST       reduce using rule 54 (mlist -> epsilon MYEAR .)
+    MYEAR           reduce using rule 54 (mlist -> epsilon MYEAR .)
+    $end            reduce using rule 54 (mlist -> epsilon MYEAR .)
+
+
+state 43
+
+    (1) start -> moviename simMov whereTowatch storyline language director . producer writer boxoffice runtime crew
+    (19) director -> director . dval
+    (23) producer -> . lprod producer
+    (24) producer -> . lprod
+    (21) dval -> . LDIR
+    (22) dval -> . epsilon
+    (30) lprod -> . CELEBRITY
+    (31) lprod -> . epsilon
+    (55) epsilon -> .
+
+  ! shift/reduce conflict for LDIR resolved as shift
+  ! shift/reduce conflict for CELEBRITY resolved as shift
+    LDIR            shift and go to state 45
+    CELEBRITY       shift and go to state 51
+    separator       reduce using rule 55 (epsilon -> .)
+    BOXOFFICE       reduce using rule 55 (epsilon -> .)
+    RUNTIME         reduce using rule 55 (epsilon -> .)
+    LINK            reduce using rule 55 (epsilon -> .)
+    ACTUALNAME      reduce using rule 55 (epsilon -> .)
+
+  ! LDIR            [ reduce using rule 55 (epsilon -> .) ]
+  ! CELEBRITY       [ reduce using rule 55 (epsilon -> .) ]
+
+    producer                       shift and go to state 47
+    dval                           shift and go to state 48
+    lprod                          shift and go to state 49
+    epsilon                        shift and go to state 50
+
+state 44
+
+    (20) director -> dval .
+
+    LDIR            reduce using rule 20 (director -> dval .)
+    CELEBRITY       reduce using rule 20 (director -> dval .)
+    separator       reduce using rule 20 (director -> dval .)
+    BOXOFFICE       reduce using rule 20 (director -> dval .)
+    RUNTIME         reduce using rule 20 (director -> dval .)
+    LINK            reduce using rule 20 (director -> dval .)
+    ACTUALNAME      reduce using rule 20 (director -> dval .)
+
+
+state 45
+
+    (21) dval -> LDIR .
+
+    LDIR            reduce using rule 21 (dval -> LDIR .)
+    CELEBRITY       reduce using rule 21 (dval -> LDIR .)
+    separator       reduce using rule 21 (dval -> LDIR .)
+    BOXOFFICE       reduce using rule 21 (dval -> LDIR .)
+    RUNTIME         reduce using rule 21 (dval -> LDIR .)
+    LINK            reduce using rule 21 (dval -> LDIR .)
+    ACTUALNAME      reduce using rule 21 (dval -> LDIR .)
+
+
+state 46
+
+    (22) dval -> epsilon .
+
+    LDIR            reduce using rule 22 (dval -> epsilon .)
+    CELEBRITY       reduce using rule 22 (dval -> epsilon .)
+    separator       reduce using rule 22 (dval -> epsilon .)
+    BOXOFFICE       reduce using rule 22 (dval -> epsilon .)
+    RUNTIME         reduce using rule 22 (dval -> epsilon .)
+    LINK            reduce using rule 22 (dval -> epsilon .)
+    ACTUALNAME      reduce using rule 22 (dval -> epsilon .)
+
+
+state 47
+
+    (1) start -> moviename simMov whereTowatch storyline language director producer . writer boxoffice runtime crew
+    (25) writer -> . separator lwrite writer
+    (26) writer -> . lwrite writer
+    (27) writer -> . lwrite
+    (28) lwrite -> . CELEBRITY
+    (29) lwrite -> . epsilon
+    (55) epsilon -> .
+
+  ! shift/reduce conflict for separator resolved as shift
+  ! shift/reduce conflict for CELEBRITY resolved as shift
+    separator       shift and go to state 53
+    CELEBRITY       shift and go to state 55
+    BOXOFFICE       reduce using rule 55 (epsilon -> .)
+    RUNTIME         reduce using rule 55 (epsilon -> .)
+    LINK            reduce using rule 55 (epsilon -> .)
+    ACTUALNAME      reduce using rule 55 (epsilon -> .)
+
+  ! separator       [ reduce using rule 55 (epsilon -> .) ]
+  ! CELEBRITY       [ reduce using rule 55 (epsilon -> .) ]
+
+    writer                         shift and go to state 52
+    lwrite                         shift and go to state 54
+    epsilon                        shift and go to state 56
+
+state 48
+
+    (19) director -> director dval .
+
+    LDIR            reduce using rule 19 (director -> director dval .)
+    CELEBRITY       reduce using rule 19 (director -> director dval .)
+    separator       reduce using rule 19 (director -> director dval .)
+    BOXOFFICE       reduce using rule 19 (director -> director dval .)
+    RUNTIME         reduce using rule 19 (director -> director dval .)
+    LINK            reduce using rule 19 (director -> director dval .)
+    ACTUALNAME      reduce using rule 19 (director -> director dval .)
+
+
+state 49
+
+    (23) producer -> lprod . producer
+    (24) producer -> lprod .
+    (23) producer -> . lprod producer
+    (24) producer -> . lprod
+    (30) lprod -> . CELEBRITY
+    (31) lprod -> . epsilon
+    (55) epsilon -> .
+
+  ! shift/reduce conflict for CELEBRITY resolved as shift
+  ! shift/reduce conflict for CELEBRITY resolved as shift
+  ! reduce/reduce conflict for separator resolved using rule 24 (producer -> lprod .)
+  ! reduce/reduce conflict for BOXOFFICE resolved using rule 24 (producer -> lprod .)
+  ! reduce/reduce conflict for RUNTIME resolved using rule 24 (producer -> lprod .)
+  ! reduce/reduce conflict for LINK resolved using rule 24 (producer -> lprod .)
+  ! reduce/reduce conflict for ACTUALNAME resolved using rule 24 (producer -> lprod .)
+    separator       reduce using rule 24 (producer -> lprod .)
+    BOXOFFICE       reduce using rule 24 (producer -> lprod .)
+    RUNTIME         reduce using rule 24 (producer -> lprod .)
+    LINK            reduce using rule 24 (producer -> lprod .)
+    ACTUALNAME      reduce using rule 24 (producer -> lprod .)
+    CELEBRITY       shift and go to state 51
+
+  ! CELEBRITY       [ reduce using rule 24 (producer -> lprod .) ]
+  ! CELEBRITY       [ reduce using rule 55 (epsilon -> .) ]
+  ! separator       [ reduce using rule 55 (epsilon -> .) ]
+  ! BOXOFFICE       [ reduce using rule 55 (epsilon -> .) ]
+  ! RUNTIME         [ reduce using rule 55 (epsilon -> .) ]
+  ! LINK            [ reduce using rule 55 (epsilon -> .) ]
+  ! ACTUALNAME      [ reduce using rule 55 (epsilon -> .) ]
+
+    lprod                          shift and go to state 49
+    producer                       shift and go to state 57
+    epsilon                        shift and go to state 58
+
+state 50
+
+    (22) dval -> epsilon .
+    (31) lprod -> epsilon .
+
+  ! reduce/reduce conflict for CELEBRITY resolved using rule 22 (dval -> epsilon .)
+  ! reduce/reduce conflict for separator resolved using rule 22 (dval -> epsilon .)
+  ! reduce/reduce conflict for BOXOFFICE resolved using rule 22 (dval -> epsilon .)
+  ! reduce/reduce conflict for RUNTIME resolved using rule 22 (dval -> epsilon .)
+  ! reduce/reduce conflict for LINK resolved using rule 22 (dval -> epsilon .)
+  ! reduce/reduce conflict for ACTUALNAME resolved using rule 22 (dval -> epsilon .)
+    LDIR            reduce using rule 22 (dval -> epsilon .)
+    CELEBRITY       reduce using rule 22 (dval -> epsilon .)
+    separator       reduce using rule 22 (dval -> epsilon .)
+    BOXOFFICE       reduce using rule 22 (dval -> epsilon .)
+    RUNTIME         reduce using rule 22 (dval -> epsilon .)
+    LINK            reduce using rule 22 (dval -> epsilon .)
+    ACTUALNAME      reduce using rule 22 (dval -> epsilon .)
+
+  ! CELEBRITY       [ reduce using rule 31 (lprod -> epsilon .) ]
+  ! separator       [ reduce using rule 31 (lprod -> epsilon .) ]
+  ! BOXOFFICE       [ reduce using rule 31 (lprod -> epsilon .) ]
+  ! RUNTIME         [ reduce using rule 31 (lprod -> epsilon .) ]
+  ! LINK            [ reduce using rule 31 (lprod -> epsilon .) ]
+  ! ACTUALNAME      [ reduce using rule 31 (lprod -> epsilon .) ]
+
+
+state 51
+
+    (30) lprod -> CELEBRITY .
+
+    CELEBRITY       reduce using rule 30 (lprod -> CELEBRITY .)
+    separator       reduce using rule 30 (lprod -> CELEBRITY .)
+    BOXOFFICE       reduce using rule 30 (lprod -> CELEBRITY .)
+    RUNTIME         reduce using rule 30 (lprod -> CELEBRITY .)
+    LINK            reduce using rule 30 (lprod -> CELEBRITY .)
+    ACTUALNAME      reduce using rule 30 (lprod -> CELEBRITY .)
+
+
+state 52
+
+    (1) start -> moviename simMov whereTowatch storyline language director producer writer . boxoffice runtime crew
+    (32) boxoffice -> . BOXOFFICE
+    (33) boxoffice -> . epsilon
+    (55) epsilon -> .
+
+    BOXOFFICE       shift and go to state 60
+    RUNTIME         reduce using rule 55 (epsilon -> .)
+    LINK            reduce using rule 55 (epsilon -> .)
+    ACTUALNAME      reduce using rule 55 (epsilon -> .)
+
+    boxoffice                      shift and go to state 59
+    epsilon                        shift and go to state 61
+
+state 53
+
+    (25) writer -> separator . lwrite writer
+    (28) lwrite -> . CELEBRITY
+    (29) lwrite -> . epsilon
+    (55) epsilon -> .
+
+  ! shift/reduce conflict for CELEBRITY resolved as shift
+    CELEBRITY       shift and go to state 55
+    separator       reduce using rule 55 (epsilon -> .)
+    BOXOFFICE       reduce using rule 55 (epsilon -> .)
+    RUNTIME         reduce using rule 55 (epsilon -> .)
+    LINK            reduce using rule 55 (epsilon -> .)
+    ACTUALNAME      reduce using rule 55 (epsilon -> .)
+
+  ! CELEBRITY       [ reduce using rule 55 (epsilon -> .) ]
+
+    lwrite                         shift and go to state 62
+    epsilon                        shift and go to state 56
+
+state 54
+
+    (26) writer -> lwrite . writer
+    (27) writer -> lwrite .
+    (25) writer -> . separator lwrite writer
+    (26) writer -> . lwrite writer
+    (27) writer -> . lwrite
+    (28) lwrite -> . CELEBRITY
+    (29) lwrite -> . epsilon
+    (55) epsilon -> .
+
+  ! shift/reduce conflict for separator resolved as shift
+  ! shift/reduce conflict for CELEBRITY resolved as shift
+  ! reduce/reduce conflict for BOXOFFICE resolved using rule 27 (writer -> lwrite .)
+  ! reduce/reduce conflict for RUNTIME resolved using rule 27 (writer -> lwrite .)
+  ! reduce/reduce conflict for LINK resolved using rule 27 (writer -> lwrite .)
+  ! reduce/reduce conflict for ACTUALNAME resolved using rule 27 (writer -> lwrite .)
+    BOXOFFICE       reduce using rule 27 (writer -> lwrite .)
+    RUNTIME         reduce using rule 27 (writer -> lwrite .)
+    LINK            reduce using rule 27 (writer -> lwrite .)
+    ACTUALNAME      reduce using rule 27 (writer -> lwrite .)
+    separator       shift and go to state 53
+    CELEBRITY       shift and go to state 55
+
+  ! separator       [ reduce using rule 55 (epsilon -> .) ]
+  ! CELEBRITY       [ reduce using rule 55 (epsilon -> .) ]
+  ! BOXOFFICE       [ reduce using rule 55 (epsilon -> .) ]
+  ! RUNTIME         [ reduce using rule 55 (epsilon -> .) ]
+  ! LINK            [ reduce using rule 55 (epsilon -> .) ]
+  ! ACTUALNAME      [ reduce using rule 55 (epsilon -> .) ]
+
+    lwrite                         shift and go to state 54
+    writer                         shift and go to state 63
+    epsilon                        shift and go to state 56
+
+state 55
+
+    (28) lwrite -> CELEBRITY .
+
+    separator       reduce using rule 28 (lwrite -> CELEBRITY .)
+    CELEBRITY       reduce using rule 28 (lwrite -> CELEBRITY .)
+    BOXOFFICE       reduce using rule 28 (lwrite -> CELEBRITY .)
+    RUNTIME         reduce using rule 28 (lwrite -> CELEBRITY .)
+    LINK            reduce using rule 28 (lwrite -> CELEBRITY .)
+    ACTUALNAME      reduce using rule 28 (lwrite -> CELEBRITY .)
+
+
+state 56
+
+    (29) lwrite -> epsilon .
+
+    separator       reduce using rule 29 (lwrite -> epsilon .)
+    CELEBRITY       reduce using rule 29 (lwrite -> epsilon .)
+    BOXOFFICE       reduce using rule 29 (lwrite -> epsilon .)
+    RUNTIME         reduce using rule 29 (lwrite -> epsilon .)
+    LINK            reduce using rule 29 (lwrite -> epsilon .)
+    ACTUALNAME      reduce using rule 29 (lwrite -> epsilon .)
+
+
+state 57
+
+    (23) producer -> lprod producer .
+
+    separator       reduce using rule 23 (producer -> lprod producer .)
+    CELEBRITY       reduce using rule 23 (producer -> lprod producer .)
+    BOXOFFICE       reduce using rule 23 (producer -> lprod producer .)
+    RUNTIME         reduce using rule 23 (producer -> lprod producer .)
+    LINK            reduce using rule 23 (producer -> lprod producer .)
+    ACTUALNAME      reduce using rule 23 (producer -> lprod producer .)
+
+
+state 58
+
+    (31) lprod -> epsilon .
+
+    CELEBRITY       reduce using rule 31 (lprod -> epsilon .)
+    separator       reduce using rule 31 (lprod -> epsilon .)
+    BOXOFFICE       reduce using rule 31 (lprod -> epsilon .)
+    RUNTIME         reduce using rule 31 (lprod -> epsilon .)
+    LINK            reduce using rule 31 (lprod -> epsilon .)
+    ACTUALNAME      reduce using rule 31 (lprod -> epsilon .)
+
+
+state 59
+
+    (1) start -> moviename simMov whereTowatch storyline language director producer writer boxoffice . runtime crew
+    (34) runtime -> . RUNTIME
+    (35) runtime -> . epsilon
+    (55) epsilon -> .
+
+    RUNTIME         shift and go to state 65
+    LINK            reduce using rule 55 (epsilon -> .)
+    ACTUALNAME      reduce using rule 55 (epsilon -> .)
+
+    runtime                        shift and go to state 64
+    epsilon                        shift and go to state 66
+
+state 60
+
+    (32) boxoffice -> BOXOFFICE .
+
+    RUNTIME         reduce using rule 32 (boxoffice -> BOXOFFICE .)
+    LINK            reduce using rule 32 (boxoffice -> BOXOFFICE .)
+    ACTUALNAME      reduce using rule 32 (boxoffice -> BOXOFFICE .)
+
+
+state 61
+
+    (33) boxoffice -> epsilon .
+
+    RUNTIME         reduce using rule 33 (boxoffice -> epsilon .)
+    LINK            reduce using rule 33 (boxoffice -> epsilon .)
+    ACTUALNAME      reduce using rule 33 (boxoffice -> epsilon .)
+
+
+state 62
+
+    (25) writer -> separator lwrite . writer
+    (25) writer -> . separator lwrite writer
+    (26) writer -> . lwrite writer
+    (27) writer -> . lwrite
+    (28) lwrite -> . CELEBRITY
+    (29) lwrite -> . epsilon
+    (55) epsilon -> .
+
+  ! shift/reduce conflict for separator resolved as shift
+  ! shift/reduce conflict for CELEBRITY resolved as shift
+    separator       shift and go to state 53
+    CELEBRITY       shift and go to state 55
+    BOXOFFICE       reduce using rule 55 (epsilon -> .)
+    RUNTIME         reduce using rule 55 (epsilon -> .)
+    LINK            reduce using rule 55 (epsilon -> .)
+    ACTUALNAME      reduce using rule 55 (epsilon -> .)
+
+  ! separator       [ reduce using rule 55 (epsilon -> .) ]
+  ! CELEBRITY       [ reduce using rule 55 (epsilon -> .) ]
+
+    lwrite                         shift and go to state 54
+    writer                         shift and go to state 67
+    epsilon                        shift and go to state 56
+
+state 63
+
+    (26) writer -> lwrite writer .
+
+    BOXOFFICE       reduce using rule 26 (writer -> lwrite writer .)
+    RUNTIME         reduce using rule 26 (writer -> lwrite writer .)
+    LINK            reduce using rule 26 (writer -> lwrite writer .)
+    ACTUALNAME      reduce using rule 26 (writer -> lwrite writer .)
+
+
+state 64
+
+    (1) start -> moviename simMov whereTowatch storyline language director producer writer boxoffice runtime . crew
+    (36) crew -> . crew lcast
+    (37) crew -> . lcast
+    (38) lcast -> . LINK ACTUALNAME CHARNAME
+    (39) lcast -> . LINK ACTUALNAME epsilon
+    (40) lcast -> . LINK epsilon CHARNAME
+    (41) lcast -> . epsilon ACTUALNAME CHARNAME
+    (42) lcast -> . epsilon ACTUALNAME epsilon
+    (55) epsilon -> .
+
+    LINK            shift and go to state 70
+    ACTUALNAME      reduce using rule 55 (epsilon -> .)
+
+    crew                           shift and go to state 68
+    lcast                          shift and go to state 69
+    epsilon                        shift and go to state 71
+
+state 65
+
+    (34) runtime -> RUNTIME .
+
+    LINK            reduce using rule 34 (runtime -> RUNTIME .)
+    ACTUALNAME      reduce using rule 34 (runtime -> RUNTIME .)
+
+
+state 66
+
+    (35) runtime -> epsilon .
+
+    LINK            reduce using rule 35 (runtime -> epsilon .)
+    ACTUALNAME      reduce using rule 35 (runtime -> epsilon .)
+
+
+state 67
+
+    (25) writer -> separator lwrite writer .
+
+    BOXOFFICE       reduce using rule 25 (writer -> separator lwrite writer .)
+    RUNTIME         reduce using rule 25 (writer -> separator lwrite writer .)
+    LINK            reduce using rule 25 (writer -> separator lwrite writer .)
+    ACTUALNAME      reduce using rule 25 (writer -> separator lwrite writer .)
+
+
+state 68
+
+    (1) start -> moviename simMov whereTowatch storyline language director producer writer boxoffice runtime crew .
+    (36) crew -> crew . lcast
+    (38) lcast -> . LINK ACTUALNAME CHARNAME
+    (39) lcast -> . LINK ACTUALNAME epsilon
+    (40) lcast -> . LINK epsilon CHARNAME
+    (41) lcast -> . epsilon ACTUALNAME CHARNAME
+    (42) lcast -> . epsilon ACTUALNAME epsilon
+    (55) epsilon -> .
+
+    $end            reduce using rule 1 (start -> moviename simMov whereTowatch storyline language director producer writer boxoffice runtime crew .)
+    LINK            shift and go to state 70
+    ACTUALNAME      reduce using rule 55 (epsilon -> .)
+
+    lcast                          shift and go to state 72
+    epsilon                        shift and go to state 71
+
+state 69
+
+    (37) crew -> lcast .
+
+    LINK            reduce using rule 37 (crew -> lcast .)
+    ACTUALNAME      reduce using rule 37 (crew -> lcast .)
+    $end            reduce using rule 37 (crew -> lcast .)
+
+
+state 70
+
+    (38) lcast -> LINK . ACTUALNAME CHARNAME
+    (39) lcast -> LINK . ACTUALNAME epsilon
+    (40) lcast -> LINK . epsilon CHARNAME
+    (55) epsilon -> .
+
+    ACTUALNAME      shift and go to state 73
+    CHARNAME        reduce using rule 55 (epsilon -> .)
+
+    epsilon                        shift and go to state 74
+
+state 71
+
+    (41) lcast -> epsilon . ACTUALNAME CHARNAME
+    (42) lcast -> epsilon . ACTUALNAME epsilon
+
+    ACTUALNAME      shift and go to state 75
+
+
+state 72
+
+    (36) crew -> crew lcast .
+
+    LINK            reduce using rule 36 (crew -> crew lcast .)
+    ACTUALNAME      reduce using rule 36 (crew -> crew lcast .)
+    $end            reduce using rule 36 (crew -> crew lcast .)
+
+
+state 73
+
+    (38) lcast -> LINK ACTUALNAME . CHARNAME
+    (39) lcast -> LINK ACTUALNAME . epsilon
+    (55) epsilon -> .
+
+    CHARNAME        shift and go to state 76
+    LINK            reduce using rule 55 (epsilon -> .)
+    ACTUALNAME      reduce using rule 55 (epsilon -> .)
+    $end            reduce using rule 55 (epsilon -> .)
+
+    epsilon                        shift and go to state 77
+
+state 74
+
+    (40) lcast -> LINK epsilon . CHARNAME
+
+    CHARNAME        shift and go to state 78
+
+
+state 75
+
+    (41) lcast -> epsilon ACTUALNAME . CHARNAME
+    (42) lcast -> epsilon ACTUALNAME . epsilon
+    (55) epsilon -> .
+
+    CHARNAME        shift and go to state 80
+    LINK            reduce using rule 55 (epsilon -> .)
+    ACTUALNAME      reduce using rule 55 (epsilon -> .)
+    $end            reduce using rule 55 (epsilon -> .)
+
+    epsilon                        shift and go to state 79
+
+state 76
+
+    (38) lcast -> LINK ACTUALNAME CHARNAME .
+
+    LINK            reduce using rule 38 (lcast -> LINK ACTUALNAME CHARNAME .)
+    ACTUALNAME      reduce using rule 38 (lcast -> LINK ACTUALNAME CHARNAME .)
+    $end            reduce using rule 38 (lcast -> LINK ACTUALNAME CHARNAME .)
+
+
+state 77
+
+    (39) lcast -> LINK ACTUALNAME epsilon .
+
+    LINK            reduce using rule 39 (lcast -> LINK ACTUALNAME epsilon .)
+    ACTUALNAME      reduce using rule 39 (lcast -> LINK ACTUALNAME epsilon .)
+    $end            reduce using rule 39 (lcast -> LINK ACTUALNAME epsilon .)
+
+
+state 78
+
+    (40) lcast -> LINK epsilon CHARNAME .
+
+    LINK            reduce using rule 40 (lcast -> LINK epsilon CHARNAME .)
+    ACTUALNAME      reduce using rule 40 (lcast -> LINK epsilon CHARNAME .)
+    $end            reduce using rule 40 (lcast -> LINK epsilon CHARNAME .)
+
+
+state 79
+
+    (42) lcast -> epsilon ACTUALNAME epsilon .
+
+    LINK            reduce using rule 42 (lcast -> epsilon ACTUALNAME epsilon .)
+    ACTUALNAME      reduce using rule 42 (lcast -> epsilon ACTUALNAME epsilon .)
+    $end            reduce using rule 42 (lcast -> epsilon ACTUALNAME epsilon .)
+
+
+state 80
+
+    (41) lcast -> epsilon ACTUALNAME CHARNAME .
+
+    LINK            reduce using rule 41 (lcast -> epsilon ACTUALNAME CHARNAME .)
+    ACTUALNAME      reduce using rule 41 (lcast -> epsilon ACTUALNAME CHARNAME .)
+    $end            reduce using rule 41 (lcast -> epsilon ACTUALNAME CHARNAME .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for onlineplatform in state 7 resolved as shift
+WARNING: shift/reduce conflict for similarMov in state 9 resolved as shift
+WARNING: shift/reduce conflict for LSTORY in state 14 resolved as shift
+WARNING: shift/reduce conflict for onlineplatform in state 14 resolved as shift
+WARNING: shift/reduce conflict for MYEAR in state 33 resolved as shift
+WARNING: shift/reduce conflict for LDIR in state 35 resolved as shift
+WARNING: shift/reduce conflict for LDIR in state 43 resolved as shift
+WARNING: shift/reduce conflict for CELEBRITY in state 43 resolved as shift
+WARNING: shift/reduce conflict for separator in state 47 resolved as shift
+WARNING: shift/reduce conflict for CELEBRITY in state 47 resolved as shift
+WARNING: shift/reduce conflict for CELEBRITY in state 49 resolved as shift
+WARNING: shift/reduce conflict for CELEBRITY in state 49 resolved as shift
+WARNING: shift/reduce conflict for CELEBRITY in state 53 resolved as shift
+WARNING: shift/reduce conflict for separator in state 54 resolved as shift
+WARNING: shift/reduce conflict for CELEBRITY in state 54 resolved as shift
+WARNING: shift/reduce conflict for separator in state 62 resolved as shift
+WARNING: shift/reduce conflict for CELEBRITY in state 62 resolved as shift
+WARNING: reduce/reduce conflict in state 28 resolved using rule (dwatch -> epsilon)
+WARNING: rejected rule (storyline -> epsilon) in state 28
+WARNING: reduce/reduce conflict in state 49 resolved using rule (producer -> lprod)
+WARNING: rejected rule (epsilon -> <empty>) in state 49
+WARNING: reduce/reduce conflict in state 50 resolved using rule (dval -> epsilon)
+WARNING: rejected rule (lprod -> epsilon) in state 50
+WARNING: reduce/reduce conflict in state 54 resolved using rule (writer -> lwrite)
+WARNING: rejected rule (epsilon -> <empty>) in state 54
+WARNING: Rule (storyline -> epsilon) is never reduced

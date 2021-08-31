@@ -1,0 +1,25 @@
+Name             : Sreyasree Mandal
+Roll no.         : 20CS60R23
+OPERATING SYSTEM : UBUNTU 20.04
+Language         : Python3
+Assignment       : 9
+
+How to run each query:
+	(i) open a terminal inside the directory
+	(ii) type the following at the terminal: make
+	
+task.py contains both task1 and task 2 of this assignement 9. The program takes input from the user in an infinite loop accepting any number of films user wants to enter and get information. THe program will always ask the user for a yes/no  answer and then proceed. It will continue fetching films until the user says no. 
+
+1) main() extracts downloads and saves the genre files in the local directory
+
+2) root_function() is running an infinite loop. It asks user to input a genre from the displayed list. After user selects a genre, all the 100 movies are extracted from the genre htmlfile. 
+
+3) MovieParsing(movie, url) : In this function, the movie webpage is parsed. It takes arguments as the name of the movie and its website link or url.
+
+4) MovieInfo(): All the required info from the movie web page are extracted and user is asked to select fields. YOU MIGHT ALSO LIKE field has a complete recursion implemented. User can go to any movie from YOU MIGHT ALSO LIKE and also to their YOU MIGHT ALSO LIKE field and go on like this. This is a complete recursion in which at every successive level, the values of the fields are preserved. 
+
+5) castParsing(actor, actor_url): : It takes the patrameter as the name of the actor and the website url of the profile. In this function, the profile page of the actor is parsed.
+
+6) castInfo(actor) : It takes the patrameter as the name of the actor. In this fuction, all the required info from the actor web page are extracted and user is asked to select fields and then displayed. It is in an infinite while loop. It will keep asking to enter actor fields until the user says no. If Movie field is selected, then user is asked to enter a year (PLEASE ENTER INTEGER VALUE) and accordingly movies on that year and after will be displayed.
+
+NOTE: Enter the names  of the genres, movies and other fields exactly as given in the list. They are case and character sensitive.
